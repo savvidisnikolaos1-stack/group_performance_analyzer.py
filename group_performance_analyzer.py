@@ -1,7 +1,7 @@
 scores = []
 
 while True:
-    user_input = input("შეიყვანეთ ქულა (ან 'stop'): ")
+    user_input = input("Enter score or <stop>: ")
 
     if user_input == "stop":
         break
@@ -9,31 +9,31 @@ while True:
     try:
         number = float(user_input)
     except ValueError:
-        print("გთხოვთ შეიყვანოთ სწორი რიცხვი ან 'stop'")
+        print("Enter the number or <stop>")
         continue
 
     if number >= 0 and number <= 10:
         scores.append(number)
     else:
-        print("ქულა უნდა იყოს 0-დან 10-მდე")
-#ქულები
+        print("Please write number from 0 to 10")
+
 if len(scores) == 0:
-    print("ქულები არ შეყვანილა")
+    print("There is no scores")
 else:
     minimum = min(scores)
     maximum = max(scores)
     average = sum(scores) / len(scores)
 
-    print("მინიმალური ქულა:", minimum)
-    print("მაქსიმალური ქულა:", maximum)
-    print("კლასის საშუალო:", average)
+    print("Min. points:", minimum)
+    print("Max. points:", maximum)
+    print("Average:", average)
 
     scores.sort()
-    print("ქულები ზრდადობით:", scores)
+    print("points by growing:", scores)
 
-    print("გამეორებები:")
+    print("Repeats:")
     already_counted = []
     for score in scores:
         if score not in already_counted:
-            print(score, "-", scores.count(score), "ჯერ")
+            print(score, "-", scores.count(score), "time(s)")
             already_counted.append(score)
